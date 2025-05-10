@@ -11,6 +11,11 @@ tile -> burnable tile, rock, river, ash
 
 burnable tile -> grass, tree
 
+         tile -------> burnable tile 
+       /  |  \              |    \
+      /   |    \            |     \
+    V     V     V           V      V 
+rock    river  ash        grass   tree
 
 
 */
