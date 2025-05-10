@@ -1,9 +1,15 @@
 /*
-objects: bare ground, grass, bushes, trees, logs?, rocks, water?
+Classes: Main, Tile, Burnable Tile, Grass, Tree, Fire, Ash, Rock, River, AdminPanel
 
+We are making a fire simulator, the main class will have a createGrid method, StartSimulation method, and the main run method that will include a key listener method. The tile class will have a draw method, the burnable tile
+will have an overrided draw method,  the grass class will just have a constructor, the tree class will have a fall method, the ash will just have a constructor, the fire class will have a StartFire method, spreadFire method,
+and Update method, and the AdminPanel will have a constructor
 
+the inheritence will be:
 
+tile -> burnable tile, rock, river, ash
 
+burnable tile -> grass, tree
 
 
 
