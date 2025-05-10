@@ -1,0 +1,2 @@
+Our program simulates the spread of a wildfire and how it behaves with the various elements of the environment, such as trees, and terrain. The goal is to show graphically how a fire spreads and responds to obstacles or fuels in varying ways. This project uses the principles of CS 141 to 143 by demonstrating our understanding of object-oriented programming, data structures, and simulation logic through classes, arrays, conditionals, and graphical output.
+
