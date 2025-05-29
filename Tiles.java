@@ -11,6 +11,10 @@ public class Tiles {
     public Tiles(Color color) {
         this.color = color;
     }
+
+    public boolean burn(){
+        return false;
+    }
     
     public void draw(Graphics g, int x, int y, int size) {
         g.setColor(color);
