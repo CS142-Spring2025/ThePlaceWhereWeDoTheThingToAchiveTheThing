@@ -1,0 +1,55 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.util.Random;
+
+public class SimulatorMain extends JPanel {
+    public static final int TILE_SIZE = 10;
+    public static final int TILES_PER_ROW = 100;
+    public static final int TILES_PER_COL = 100;
+    
+    private Tiles[][] grid;
+    private Random rand = new Random();
+
+    public SimulatorMain() {
+        setPreferredSize(new Dimension(TILE_SIZE * TILES_PER_ROW, TILE_SIZE * TILES_PER_COL));
+        createGrid();
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        for (int row = 0; row < TILES_PER_COL; row++) {
+            for (int col = 0; col < TILES_PER_ROW; col++) {
+                int x = col * TILE_SIZE;
+                int y = row * TILE_SIZE;
+                grid[row][col].draw(g, x, y, TILE_SIZE);
+            }
+        }
+    }
+    public void createGrid() {
+        grid = new Tiles[TILES_PER_COL][TILES_PER_ROW];
+        for (int row = 0; row < TILES_PER_COL; row++) {
+            for (int col = 0; col < TILES_PER_ROW; col++) {
+                int temp = rand.nextInt(100);
+                if (col > 60 && col <= 70){
+                    grid[row][col] = new Water();
+                }else if (temp <= 20) {
+                    grid[row][col] = new Tiles();
+                } else if (temp > 20 && temp <= 80){
+                    grid[row][col] = new Grass();
+                }else
+                    grid[row][col] = new Rock();
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Simulator Grid");
+        SimulatorMain panel = new SimulatorMain();
+        frame.add(panel);
+        frame.pack();
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+    }
+}
