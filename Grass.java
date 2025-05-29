@@ -7,4 +7,8 @@ public class Grass extends Tiles{
     public Grass() {
         super(Color.GREEN);
     }
+
+    public boolean burn(){
+        return true;
+    }
 }
