@@ -1,8 +1,10 @@
+//these line show all the import used in the program
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.Random;
 
+//this is where the SimulatorMain class started
 public class SimulatorMain extends JPanel {
     public static final int TILE_SIZE = 10;
     public static final int TILES_PER_ROW = 100;
@@ -16,6 +18,7 @@ public class SimulatorMain extends JPanel {
         createGrid();
     }
 
+    //this method i used to draw graphics onto the GUI of the program
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -27,6 +30,8 @@ public class SimulatorMain extends JPanel {
             }
         }
     }
+
+    //this method is used to create individual tiles where each one will be defined as a different object
     public void createGrid() {
         grid = new Tiles[TILES_PER_COL][TILES_PER_ROW];
         for (int row = 0; row < TILES_PER_COL; row++) {
@@ -44,6 +49,7 @@ public class SimulatorMain extends JPanel {
         }
     }
 
+    //this is where the main method started
     public static void main(String[] args) {
         JFrame frame = new JFrame("Simulator Grid");
         SimulatorMain panel = new SimulatorMain();
