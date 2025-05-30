@@ -39,8 +39,20 @@ public class SimulatorMain extends JPanel {
         for (int row = 0; row < TILES_PER_COL; row++) {
             for (int col = 0; col < TILES_PER_ROW; col++) {
                 int temp = rand.nextInt(100);
-                if (col > 60 && col <= 70){
+                 if (col > 60 && col <= 70){
                     grid[row][col] = new Water();
+                }else if(col == 60 || col == 71){
+                    int random = rand.nextInt(2);
+                    if(random==0){
+                        grid[row][col] = new Water();
+                        if(col == 60){
+                            grid[row][59]= new Sand();
+                        }else if(col == 71){
+                            grid[row][72]= new Sand();        
+                        }
+                    }else{
+                        grid[row][col] = new Sand();
+                    }
                 }else if (temp <= 20) {
                     grid[row][col] = new Tiles();
                 } else if (temp > 20 && temp <= 80){
