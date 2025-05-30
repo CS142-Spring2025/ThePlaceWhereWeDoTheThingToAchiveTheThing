@@ -20,7 +20,7 @@ public class SimulatorMain extends JPanel {
         createGrid();
     }
 
-    //this method i used to draw graphics onto the GUI of the program
+    //this method we used to draw graphics onto the GUI of the program
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
