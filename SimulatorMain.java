@@ -6,6 +6,8 @@ import java.util.Random;
 
 //this is where the SimulatorMain class started
 public class SimulatorMain extends JPanel {
+
+    //these are some of the variable used in the program
     public static final int TILE_SIZE = 10;
     public static final int TILES_PER_ROW = 100;
     public static final int TILES_PER_COL = 100;
