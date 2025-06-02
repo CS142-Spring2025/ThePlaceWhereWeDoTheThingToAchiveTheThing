@@ -1,5 +1,4 @@
 //these line show all the import used in the program
-package FinalProject;
 import java.awt.Color;
 
 //this is where the Rock class started
