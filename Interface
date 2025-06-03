@@ -1,0 +1,62 @@
+
+package FinalProject;
+import java.util.*;
+import javax.swing.*;
+import java.awt.event.*; 
+
+
+public class Interface implements ActionListener {
+    
+    private JTextField grass;
+    private JTextField rocks;
+    private JTextField field;
+    
+    
+    public void actionPerformed (ActionEvent event) {
+    try{
+        int grassVal = Integer.parseInt(grass.getText().trim());
+        int rocksVal = Integer.parseInt(rocks.getText().trim());
+        int fieldVal = Integer.parseInt(field.getText().trim());
+        
+        System.out.println("clicked " + event.getActionCommand());
+        JOptionPane.showMessageDialog(null, "clicked");
+    }catch(NumberFormatException e){
+        JOptionPane.showMessageDialog(null, "Please enter Int which the sum is less then 100.");
+    }
+      
+        
+     
+   }
+    public Interface(){
+        JFrame frame = new JFrame("Test");
+        frame.setSize(400,500);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLayout(null);
+        
+        
+        grass = new JTextField("30");
+        grass.setBounds(50,30,80,20);
+        grass.setHorizontalAlignment(JTextField.RIGHT);
+        frame.add(grass);
+        
+        rocks = new JTextField("25");
+        rocks.setBounds(50,60,80,20);
+        rocks.setHorizontalAlignment(JTextField.RIGHT);
+        frame.add(rocks);
+        
+        field = new JTextField("45");
+        field.setBounds(50,90,80,20);
+        field.setHorizontalAlignment(JTextField.RIGHT);
+        frame.add(field);
+        
+        JButton button = new JButton("Submit");
+        button.setBounds(50,120,100,20);
+        button.setHorizontalAlignment(JTextField.CENTER);
+        button.addActionListener(this);
+        frame.add(button);
+        
+        frame.setVisible(true);
+    }
+    
+    
+}
