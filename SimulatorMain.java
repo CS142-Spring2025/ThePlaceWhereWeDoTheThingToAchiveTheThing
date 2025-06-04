@@ -13,12 +13,38 @@ public class SimulatorMain extends JPanel {
     public static final int TILES_PER_COL = 100;
     
     private Tiles[][] grid;
+    private Fire fire;
     private Random rand = new Random();
 
     public SimulatorMain() {
-        setPreferredSize(new Dimension(TILE_SIZE * TILES_PER_ROW, TILE_SIZE * TILES_PER_COL));
-        createGrid();
-    }
+    setPreferredSize(new Dimension(TILE_SIZE * TILES_PER_ROW, TILE_SIZE * TILES_PER_COL));
+    createGrid();
+
+    fire = new Fire();
+
+    Timer starter = new Timer(500, new ActionListener() {
+        public void actionPerformed(ActionEvent e) {
+            fire.startFire(grid);
+        }
+    });
+    starter.setRepeats(false);
+    starter.start();
+
+    Timer timer = new Timer(200, new ActionListener() {
+        public void actionPerformed(ActionEvent e) {
+            for (int row = 0; row < TILES_PER_COL; row++) {
+                for (int col = 0; col < TILES_PER_ROW; col++) {
+                    if (grid[row][col] instanceof BurnableTiles bt) {
+                        bt.decreaseBurnTime(1, grid, row, col);
+                    }
+                }
+            }
+            fire.spreadFire(grid);
+            repaint();
+        }
+    });
+    timer.start();
+   }
 
     //this method we used to draw graphics onto the GUI of the program
     @Override
@@ -65,8 +91,6 @@ public class SimulatorMain extends JPanel {
 
     //this is where the main method started
     public static void main(String[] args) {
-        Interface input = new Interface();
-        
         JFrame frame = new JFrame("Simulator Grid");
         SimulatorMain panel = new SimulatorMain();
         frame.add(panel);
