@@ -91,6 +91,7 @@ public class SimulatorMain extends JPanel {
 
     //this is where the main method started
     public static void main(String[] args) {
+        Interface input = new Interface();
         JFrame frame = new JFrame("Simulator Grid");
         SimulatorMain panel = new SimulatorMain();
         frame.add(panel);
