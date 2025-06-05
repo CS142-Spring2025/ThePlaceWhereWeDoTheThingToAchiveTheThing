@@ -15,10 +15,11 @@ public class SimulatorMain extends JPanel {
     private Tiles[][] grid;
     private Fire fire;
     private Random rand = new Random();
+    
 
-    public SimulatorMain() {
+    public SimulatorMain(Interface input) {
     setPreferredSize(new Dimension(TILE_SIZE * TILES_PER_ROW, TILE_SIZE * TILES_PER_COL));
-    createGrid();
+    createGrid(input);
 
     fire = new Fire();
 
@@ -60,7 +61,7 @@ public class SimulatorMain extends JPanel {
     }
 
     //this method is used to create individual tiles where each one will be defined as a different object
-    public void createGrid() {
+    public void createGrid(Interface input) {
         grid = new Tiles[TILES_PER_COL][TILES_PER_ROW];
         for (int row = 0; row < TILES_PER_COL; row++) {
             for (int col = 0; col < TILES_PER_ROW; col++) {
@@ -79,9 +80,9 @@ public class SimulatorMain extends JPanel {
                     }else{
                         grid[row][col] = new Sand();
                     }
-                }else if (temp <= 20) {
+                }else if (temp <= input.FieldValue()) {
                     grid[row][col] = new Tiles();
-                } else if (temp > 20 && temp <= 80){
+                } else if (temp > input.FieldValue() && temp <= input.GrassValue()){
                     grid[row][col] = new Grass();
                 }else
                     grid[row][col] = new Rock();
@@ -101,7 +102,7 @@ public class SimulatorMain extends JPanel {
             } 
         }
         JFrame frame = new JFrame("Simulator Grid");
-        SimulatorMain panel = new SimulatorMain();
+        SimulatorMain panel = new SimulatorMain(input);
         frame.add(panel);
         frame.pack();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
