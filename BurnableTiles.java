@@ -51,6 +51,3 @@ public class BurnableTiles extends Tiles {
         }
     }
 }
-        }
-    }
-}
