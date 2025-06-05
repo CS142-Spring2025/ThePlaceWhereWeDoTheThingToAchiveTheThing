@@ -10,7 +10,4 @@ public class Grass extends BurnableTiles{
     }
 
     //this method determine if the object is burnable
-    public boolean burn(){
-        return true;
-    }
 }
