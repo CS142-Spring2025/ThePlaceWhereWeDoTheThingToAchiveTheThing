@@ -1,4 +1,3 @@
-
 package FinalProject;
 import java.util.*;
 import javax.swing.*;
@@ -10,16 +9,29 @@ public class Interface implements ActionListener {
     private JTextField grass;
     private JTextField rocks;
     private JTextField field;
+    private int grassVal = 30;
+    private int rocksVal = 25;
+    private int fieldVal = 45;
+    private JFrame frame;
+    private boolean status = false;
     
     
     public void actionPerformed (ActionEvent event) {
     try{
-        int grassVal = Integer.parseInt(grass.getText().trim());
-        int rocksVal = Integer.parseInt(rocks.getText().trim());
-        int fieldVal = Integer.parseInt(field.getText().trim());
         
-        System.out.println("clicked " + event.getActionCommand());
-        JOptionPane.showMessageDialog(null, "clicked");
+        grassVal = Integer.parseInt(grass.getText().trim());
+        rocksVal = Integer.parseInt(rocks.getText().trim());
+        fieldVal = Integer.parseInt(field.getText().trim());
+        int total = grassVal+rocksVal+fieldVal;
+        if(total>100){
+            JOptionPane.showMessageDialog(frame, "The total value exceeds 100%.");
+        }else if(total<100){
+            JOptionPane.showMessageDialog(frame, "The total value is less than 100%.");
+        }else{
+            status = true;
+            frame.dispose();
+        }
+        
     }catch(NumberFormatException e){
         JOptionPane.showMessageDialog(null, "Please enter Int which the sum is less then 100.");
     }
@@ -28,7 +40,7 @@ public class Interface implements ActionListener {
      
    }
     public Interface(){
-        JFrame frame = new JFrame("Test");
+        frame = new JFrame("Test");
         frame.setSize(400,500);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(null);
@@ -58,5 +70,19 @@ public class Interface implements ActionListener {
         frame.setVisible(true);
     }
     
+    public int GrassValue(){
+        return grassVal;
+    }
     
+    public int RocksValue(){
+        return rocksVal;
+    }
+    
+    public int FieldValue(){
+        return fieldVal;
+    }
+    
+    public boolean currentStatus(){
+        return status;
+    }
 }
