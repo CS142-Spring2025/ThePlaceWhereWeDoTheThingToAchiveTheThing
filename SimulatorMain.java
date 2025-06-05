@@ -92,11 +92,20 @@ public class SimulatorMain extends JPanel {
     //this is where the main method started
     public static void main(String[] args) {
         Interface input = new Interface();
+        
+        while (!input.currentStatus()) {
+            try {
+               Thread.sleep(100);  // Check every 100ms
+            } catch (InterruptedException e) {
+               e.printStackTrace();
+            } 
+        }
         JFrame frame = new JFrame("Simulator Grid");
         SimulatorMain panel = new SimulatorMain();
         frame.add(panel);
         frame.pack();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
+        System.out.println(input.GrassValue()+"  "+input.FieldValue()+"  "+input.RocksValue());
     }
 }
