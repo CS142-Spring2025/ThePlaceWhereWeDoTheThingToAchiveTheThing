@@ -3,7 +3,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 //this is where the Tiles class started
-public class Tiles {
+public class Tiles { //dirt
     protected Color color;
     protected boolean canBurn;
     protected int burnTime;
