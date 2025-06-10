@@ -46,10 +46,12 @@ public class Fire {
         }
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
-                if (newFires[row][col] && rand.nextInt(100) <= 50) {
+                if (newFires[row][col]) {
                     BurnableTiles tile = (BurnableTiles) grid[row][col];
-                    tile.setBurning(true);
-                    fire[row][col] = 1;
+                    if(rand.nextInt(100) <= tile.returnBurnChance()){
+                       tile.setBurning(true);
+                       fire[row][col] = 1;
+                    }
                 }
             }
         }
