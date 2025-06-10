@@ -6,7 +6,7 @@ public class Grass extends BurnableTiles{
 
     //this constructor is used to create a Grass object
     public Grass() {
-        super(1000, Color.GREEN);
+        super(2000, 50, Color.GREEN);
     }
 
     //this method determine if the object is burnable
