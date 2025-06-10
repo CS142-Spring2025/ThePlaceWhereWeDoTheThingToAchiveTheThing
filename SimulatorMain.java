@@ -36,7 +36,7 @@ public class SimulatorMain extends JPanel {
             for (int row = 0; row < TILES_PER_COL; row++) {
                 for (int col = 0; col < TILES_PER_ROW; col++) {
                     if (grid[row][col] instanceof BurnableTiles bt) {
-                        bt.decreaseBurnTime(1, grid, row, col);
+                        bt.decreaseBurnTime(100, grid, row, col);
                     }
                 }
             }
@@ -82,7 +82,7 @@ public class SimulatorMain extends JPanel {
                     }
                 }else if (temp <= input.FieldValue()) {
                     grid[row][col] = new Tiles();
-                } else if (temp > input.FieldValue() && temp <= input.GrassValue()){
+                } else if (temp > input.FieldValue() && temp <= input.GrassValue()+input.FieldValue()){
                     grid[row][col] = new Grass();
                 }else
                     grid[row][col] = new Rock();
@@ -93,7 +93,6 @@ public class SimulatorMain extends JPanel {
     //this is where the main method started
     public static void main(String[] args) {
         Interface input = new Interface();
-        
         while (!input.currentStatus()) {
             try {
                Thread.sleep(100);  // Check every 100ms
