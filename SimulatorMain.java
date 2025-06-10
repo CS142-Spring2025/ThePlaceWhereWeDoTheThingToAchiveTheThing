@@ -30,13 +30,13 @@ public class SimulatorMain extends JPanel {
     });
     starter.setRepeats(false);
     starter.start();
-
-    Timer timer = new Timer(200, new ActionListener() {
+    
+    Timer timer = new Timer(input.tickSpeedValue(), new ActionListener() {
         public void actionPerformed(ActionEvent e) {
             for (int row = 0; row < TILES_PER_COL; row++) {
                 for (int col = 0; col < TILES_PER_ROW; col++) {
                     if (grid[row][col] instanceof BurnableTiles bt) {
-                        bt.decreaseBurnTime(100, grid, row, col);
+                        bt.decreaseBurnTime(200, grid, row, col);
                     }
                 }
             }
@@ -84,8 +84,11 @@ public class SimulatorMain extends JPanel {
                     grid[row][col] = new Tiles();
                 } else if (temp > input.FieldValue() && temp <= input.GrassValue()+input.FieldValue()){
                     grid[row][col] = new Grass();
-                }else
+                }else if ( temp > input.GrassValue()+input.FieldValue()&&temp<=input.FieldValue()+input.GrassValue()+input.treeValue()){
+                    grid[row][col] = new Tree();
+                }else{
                     grid[row][col] = new Rock();
+                }
             }
         }
     }
