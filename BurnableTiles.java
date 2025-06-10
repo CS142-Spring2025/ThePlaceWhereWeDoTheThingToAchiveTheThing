@@ -7,16 +7,18 @@ import java.util.Random;
 public class BurnableTiles extends Tiles {
 
     //these are some of the variable used in the program
-    private int remainingBurnTime;
-    private boolean isBurning;
+    protected int remainingBurnTime;
+    protected boolean isBurning;
+    protected int burnChance;
     private boolean flag = false;
     public boolean canBurn;
     private Random rand = new Random();
 
     //this Constructor is used to create a new BurnableTiles object
-    public BurnableTiles(int burnTime, Color color) {
+    public BurnableTiles(int burnTime, int chanceOfFire, Color color) {
         super(color);
         this.canBurn = true;
+        this.burnChance=chanceOfFire;
         this.remainingBurnTime = burnTime;
         this.isBurning = false;
     }
@@ -43,6 +45,10 @@ public class BurnableTiles extends Tiles {
     //this method is used to return the status of if the tiles is burning
     public boolean isBurning() {
         return isBurning;
+    }
+    
+    public int returnBurnChance(){
+      return burnChance;
     }
 
     //this method is used to set the tiles on fire
