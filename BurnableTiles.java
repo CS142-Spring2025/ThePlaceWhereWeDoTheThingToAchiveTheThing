@@ -1,14 +1,19 @@
+//this line display all the import used inside the program
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Random;
 
+//this is where the BurnableTiles class started
 public class BurnableTiles extends Tiles {
+
+    //these are some of the variable used in the program
     private int remainingBurnTime;
     private boolean isBurning;
     private boolean flag = false;
     public boolean canBurn;
     private Random rand = new Random();
 
+    //this Constructor is used to create a new BurnableTiles object
     public BurnableTiles(int burnTime, Color color) {
         super(color);
         this.canBurn = true;
@@ -16,10 +21,12 @@ public class BurnableTiles extends Tiles {
         this.isBurning = false;
     }
 
+    //this method is used to return the remaining time the tiles is burning for
     public int getRemainingBurnTime() {
         return remainingBurnTime;
     }
 
+    //this method is used to update the time for the object to burn before it stop
     public void decreaseBurnTime(int timeStep, Tiles[][] grid, int row, int col) {
       if (isBurning) {
          remainingBurnTime -= timeStep;
@@ -33,14 +40,17 @@ public class BurnableTiles extends Tiles {
    }
 
 
+    //this method is used to return the status of if the tiles is burning
     public boolean isBurning() {
         return isBurning;
     }
 
+    //this method is used to set the tiles on fire
     public void setBurning(boolean burning) {
         this.isBurning = burning;
     }
 
+    //this method is used to draw the burning tiles
     @Override
     public void draw(Graphics g, int x, int y, int tileSize) {
         if (isBurning) {
