@@ -8,9 +8,9 @@ public class Interface implements ActionListener {
     private JTextField grass;
     private JTextField rocks;
     private JTextField field;
-    private int grassVal = 30;
-    private int rocksVal = 25;
-    private int fieldVal = 45;
+    private int grassVal = 70;
+    private int rocksVal = 10;
+    private int fieldVal = 20;
     private JFrame frame;
     private boolean status = false;
     
@@ -45,17 +45,17 @@ public class Interface implements ActionListener {
         frame.setLayout(null);
         
         
-        grass = new JTextField("30");
+        grass = new JTextField("70");
         grass.setBounds(50,30,80,20);
         grass.setHorizontalAlignment(JTextField.RIGHT);
         frame.add(grass);
         
-        rocks = new JTextField("25");
+        rocks = new JTextField("10");
         rocks.setBounds(50,60,80,20);
         rocks.setHorizontalAlignment(JTextField.RIGHT);
         frame.add(rocks);
         
-        field = new JTextField("45");
+        field = new JTextField("20");
         field.setBounds(50,90,80,20);
         field.setHorizontalAlignment(JTextField.RIGHT);
         frame.add(field);
