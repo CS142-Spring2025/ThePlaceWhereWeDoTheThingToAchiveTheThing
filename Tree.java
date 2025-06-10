@@ -7,8 +7,8 @@ public class Tree extends BurnableTiles{
    private Random rand = new Random();
 
    public Tree() {
-        super(2000, new Color(43,70,60));
-        this.treeHeight=rand.nextInt(10);
+        super(4000, 20, new Color(43,70,60));
+        this.treeHeight=rand.nextInt(20);
    }
    @Override
    public void decreaseBurnTime(int timeStep, Tiles[][] grid, int row, int col) {
@@ -22,7 +22,7 @@ public class Tree extends BurnableTiles{
                int temp = rand.nextInt(4);
                if (temp==0){
                   for(int i=0;i<treeHeight;i++){
-                     if (inBounds(row, col+i, rows, cols)){
+                     if (inBounds(row+i, col, rows, cols)){
                         grid[row+i][col] = new Trunk();
                      }else{
                         break;
@@ -38,7 +38,7 @@ public class Tree extends BurnableTiles{
                   }
                }else if(temp==2){
                   for(int i=0;i<treeHeight;i++){
-                     if (inBounds(row, col+i, rows, cols)){
+                     if (inBounds(row-i, col, rows, cols)){
                         grid[row-i][col] = new Trunk();
                      }else{
                         break;
@@ -46,7 +46,7 @@ public class Tree extends BurnableTiles{
                   }
                }else{
                   for(int i=0;i<treeHeight;i++){
-                     if (inBounds(row, col+i, rows, cols)){
+                     if (inBounds(row, col-i, rows, cols)){
                         grid[row][col-i] = new Trunk();
                      }else{
                         break;
