@@ -1,3 +1,5 @@
+package FinalProject;
+
 //this line display all the import used inside the program
 import java.awt.Color;
 import java.awt.Graphics;
