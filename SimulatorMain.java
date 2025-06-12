@@ -1,3 +1,5 @@
+package FinalProject;
+
 //these line show all the import used in the program
 import javax.swing.*;
 import java.awt.*;
