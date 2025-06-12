@@ -1,5 +1,5 @@
 //this line let the program to use resources from the FinalProject Package
-//package FinalProject;
+package FinalProject;
 
 //these line show the import used in the program
 import java.util.*;
