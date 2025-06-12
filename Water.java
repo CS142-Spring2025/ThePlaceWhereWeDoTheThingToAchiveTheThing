@@ -1,3 +1,5 @@
+package FinalProject;
+
 //these are some of the import used in the program
 import java.awt.Color;
 
