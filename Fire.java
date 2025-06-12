@@ -1,10 +1,17 @@
+package FinalProject;
+
+//this are some of the import used in thr program
 import java.util.Random;
 
+//this is where the fire class started
 public class Fire {
+    
+    //this are some of the variable used in the program
     private int[][] fire = new int[100][100];
     private Random rand = new Random();
     private boolean started = false;
 
+    //this method is used to start the fire
     public void startFire(Tiles[][] grid) {
         while (!started) {
             int attemptCol = rand.nextInt(100);
@@ -19,6 +26,7 @@ public class Fire {
         }
     }
 
+    //this method is used to change the speed of the fire
     public void spreadFire(Tiles[][] grid) {
         int rows = grid.length;
         int cols = grid[0].length;
@@ -57,6 +65,7 @@ public class Fire {
         }
     }
 
+    //this method is used to detect if it is inside the bound
     private boolean inBounds(int row, int col, int maxRows, int maxCols) {
         return row >= 0 && row < maxRows && col >= 0 && col < maxCols;
     }
