@@ -1,11 +1,17 @@
-// this be trees 
+package FinalProject;
+
+//this is some of the import used in the program
 import java.awt.Color;
 import java.util.Random;
 
+//this is where the tree class started
 public class Tree extends BurnableTiles{
+    
+   //this is some of the variable used in the program
    private int treeHeight;
    private Random rand = new Random();
 
+   //this construct is used to create e tree object
    public Tree() {
         super(4000, 20, new Color(43,70,60));
         this.treeHeight=rand.nextInt(20);
@@ -61,14 +67,11 @@ public class Tree extends BurnableTiles{
       }
    }
    
+   //this method is used to detect if it is in bound
    private boolean inBounds(int row, int col, int maxRows, int maxCols) {
         return row >= 0 && row < maxRows && col >= 0 && col < maxCols;
    }
    /*
    public void fallingTree(Tiles[][] grid, int row, int col){
-      
-   }
-   */
-
-
+      */
 }
