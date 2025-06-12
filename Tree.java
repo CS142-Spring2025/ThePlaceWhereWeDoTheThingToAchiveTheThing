@@ -71,7 +71,5 @@ public class Tree extends BurnableTiles{
    private boolean inBounds(int row, int col, int maxRows, int maxCols) {
         return row >= 0 && row < maxRows && col >= 0 && col < maxCols;
    }
-   /*
-   public void fallingTree(Tiles[][] grid, int row, int col){
-      */
+   
 }
