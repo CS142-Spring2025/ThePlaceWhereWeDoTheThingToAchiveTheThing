@@ -145,11 +145,13 @@ public class Interface implements ActionListener {
     public int FieldValue(){
         return fieldVal;
     }
-    
+
+    //this method is used to return the percentage of tree inputed by user
     public int treeValue(){
       return treeVal;
     }
-    
+
+    //this method is used to return the percentage of tickSpeedValue inputed by user
     public int tickSpeedValue(){
       return tickSpeedVal;
     }
