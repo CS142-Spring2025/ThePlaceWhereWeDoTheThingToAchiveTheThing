@@ -82,14 +82,16 @@ public class SimulatorMain extends JPanel {
                     }else{
                         grid[row][col] = new Sand();
                     }
-                }else if (temp <= input.FieldValue()) {
-                    grid[row][col] = new Tiles();
-                } else if (temp > input.FieldValue() && temp <= input.GrassValue()+input.FieldValue()){
-                    grid[row][col] = new Grass();
-                }else if ( temp > input.GrassValue()+input.FieldValue()&&temp<=input.FieldValue()+input.GrassValue()+input.treeValue()){
-                    grid[row][col] = new Tree();
-                }else{
-                    grid[row][col] = new Rock();
+                }else if(grid[row][col] == null){
+                    if (temp < input.FieldValue()) {
+                        grid[row][col] = new Tiles();
+                    } else if (temp >= input.FieldValue() && temp <= input.GrassValue()+input.FieldValue()){
+                        grid[row][col] = new Grass();
+                    }else if ( temp > input.GrassValue()+input.FieldValue()&&temp<=input.FieldValue()+input.GrassValue()+input.treeValue()){
+                        grid[row][col] = new Tree();
+                    }else{
+                        grid[row][col] = new Rock();
+                    }
                 }
             }
         }
